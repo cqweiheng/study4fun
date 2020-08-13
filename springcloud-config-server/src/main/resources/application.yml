@@ -1,0 +1,22 @@
+server:
+  port: 8080
+
+#配置应用的名字
+spring:
+  application:
+    name: config-server
+
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/cqweiheng/springcloud-config/
+          username: cqweiheng
+          password: xdc55555
+          search-paths: src/main/resources
+eureka:
+  client:
+    register-with-eureka: true #是否将当前应用注册到注册中心
+    fetch-registry: true #当前项目是否到注册中心中拉去服务列表
+    service-url:   #给Map集合属性中赋值
+      defaultZone: http://localhost:8000/eureka/,http://localhost:7000/eureka/
