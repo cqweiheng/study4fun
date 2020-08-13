@@ -1,0 +1,20 @@
+server:
+  port: 8002
+
+spring:
+  application:
+    name: product-consumer
+
+eureka:
+  client:
+    register-with-eureka: false #是否将当前应用注册到注册中心
+    fetch-registry: false #当前项目是否到注册中心中拉去服务列表
+
+#禁用eureka注册中心
+ribbon:
+  eureka:
+    enabled: false
+#配置具体需要访问的服务列表
+PRODUCT-PROVIDER:
+  ribbon:
+    listOfServers: http://localhost:7001,http://localhost:7002

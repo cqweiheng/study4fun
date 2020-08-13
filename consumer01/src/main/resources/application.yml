@@ -1,0 +1,15 @@
+server:
+  port: 8001
+
+eureka:
+  client:
+    # 默认拉取服务列表，这里不做配置了
+    register-with-eureka: false
+    service-url:
+      # 服务中心地址
+      defaultZone: http://localhost:7000/eureka/,http://localhost:8000/eureka/
+
+# 负载均衡配置为随机策略（product-provider为服务名称，即spring.application.name）
+#product-provider:
+#  ribbon:
+#    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule

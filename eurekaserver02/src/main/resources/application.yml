@@ -1,0 +1,19 @@
+server:
+  port: 8000
+spring:
+  application:
+    # 项目名称/微服务节点名称。
+    # 配置为eurekaserver01同名，代表是一个微服务节点
+    name: eurekaServer
+eureka:
+  instance:
+    #注册服务器名称
+    hostname: eurekaServer
+  client:
+    #是否自动拉去注册中心服务列表，默认true，该项目维护服务实例用，无需拉取服务列表
+    fetch-registry: false
+    #是否将当前服务注册到注册中心，默认true，该项目本身就是服务治理中心，所以不用注册
+    register-with-eureka: false
+    service-url:
+      # 服务中心的域，注册到另一个服务中心（7000）
+      defaultZone: http://localhost:7000/eureka/
